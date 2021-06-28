@@ -21,7 +21,27 @@ let car: Car = new Car();
 
 // object literal
 
-let obj: { x: number; y: number } = {
+interface point {
+  x: number;
+  y: number;
+}
+
+let obj: point = {
   x: 10,
   y: 20,
 };
+
+const p = JSON.stringify(obj);
+const coordinates: point = JSON.parse(p);
+
+// variable whose type cannot be inferred
+
+let numbers = [-10, -1, 12];
+
+let numberAboveZero: boolean | number = false;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] > 0) {
+    numberAboveZero = numbers[i];
+  }
+}
